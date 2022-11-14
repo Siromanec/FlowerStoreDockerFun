@@ -1,18 +1,21 @@
-package ua.edu.ucu.apps.flower_store_web.flower_store;
+package ua.edu.ucu.apps.flower_store_web.flower_store.search;
 
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.Flower;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.FlowerSpec;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flowerpack.FlowerPack;
+import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
+import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerSpec;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlowerSearchEngine implements SearchEngine{
+public class FlowerSearchEngine implements SearchEngine {
     public List<Flower> search(FlowerSpec searchSpec, List<Flower> inventory) {
 
         List<Flower> matchingFlowers = new ArrayList<>();
+        FlowerSpec flowerSpec;
         for (Flower flower : inventory) {
-            FlowerSpec flowerSpec = flower.getSpec();
+            flowerSpec = flower.getSpec();
+            if (searchSpec.getFlowerType()!=flowerSpec.getFlowerType()) {
+                continue;
+            }
             if (searchSpec.getColor() != flowerSpec.getColor()) {
                 continue;
             }

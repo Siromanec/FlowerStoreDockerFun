@@ -1,9 +1,9 @@
 
 package ua.edu.ucu.apps.flower_store_web.item.bucket;
 
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.Flower;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.FlowerSpec;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flowerpack.FlowerPack;
+import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
+import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerSpec;
+import ua.edu.ucu.apps.flower_store_web.item.pack.FlowerPack;
 import ua.edu.ucu.apps.flower_store_web.item.Item;
 
 import java.util.ArrayList;
@@ -34,18 +34,30 @@ public class FlowerBucket extends Item {
         else {
             flowerPacks.add(new FlowerPack(fp, 1));
         }
-        //flowerPacks.add(fp);
+    }
+    public void addFlowers(FlowerPack fp) {
+        FlowerPack flowerPack = searchFlower(fp.getFlower().getSpec());
+        if (flowerPack!=null) {
+            flowerPack.addFlower(fp.getQuantity());
+        }
+        else {
+            flowerPacks.add(fp);
+        }
     }
     public FlowerPack searchFlower(FlowerSpec searchSpec) {
 
-        return flowerPacks.stream()
+        List<FlowerPack> flowerPackList = flowerPacks.stream()
                 .filter(flowerPack ->
                         ((flowerPack.getFlower().getSpec().getColor()
                                 ==searchSpec.getColor()))
                                 &&
                         (flowerPack.getFlower().getSpec().getSepalLength()
                                 ==searchSpec.getSepalLength()))
-                .toList().get(0);
+                .toList();
+        if (!flowerPackList.isEmpty()) {
+            return flowerPackList.get(0);
+        }
+        return null;
 //          !(new FlowerSearchEngine()
 //                .search(searchSpec,
 //                        flowerPacks

@@ -2,9 +2,8 @@
 package ua.edu.ucu.apps.flower_store_web.flower_store;
 
 
-import ua.edu.ucu.apps.flower_store_web.flower_store.FlowerInventory;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.Flower;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.FlowerSpec;
+import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
+import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerSpec;
 
 import java.util.List;
 import java.util.Scanner;

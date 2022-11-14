@@ -1,4 +1,4 @@
-package ua.edu.ucu.apps.flower_store_web.flower_store.flower;
+package ua.edu.ucu.apps.flower_store_web.item.flower;
 
 /**
  * lists all possible flowers
@@ -7,15 +7,20 @@ public enum FlowerType {
     /**
      * chamomile
      */
-    CHAMOMILE("chamomile"),
+    ROMASHKA("Romashka"),
     /**
      * rose
      */
-    ROSE("rose"),
+    ROSE("Rose"),
     /**
      * tulip
      */
-    TULIP("tulip");
+    TULIP("Tulip"),
+    /**
+     * cactus
+     */
+    CACTUS("Cactus")
+    ;
     private final String stringRepresentation;
 
     /**

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.Flower;
+import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
 import ua.edu.ucu.apps.flower_store_web.services.FlowerService;
 
 import java.util.List;

@@ -1,29 +1,26 @@
-package ua.edu.ucu.apps.flower_store_web;
+package ua.edu.ucu.apps.flower_store_web.item.flowers;
 
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.Flower;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
 
 import java.util.Random;
 
-import org.junit.jupiter.api.Assertions;
-import ua.edu.ucu.apps.flower_store_web.flower_store.flower.FlowerColor;
-
-/**
- * test for flowers
- * @hidden
- */
-public class FlowerTest {
+public class TulipFlowerTest {
     private static final Random RANDOM_GENERATOR = new Random();
     private static final int MAX_PRICE = 100;
     private Flower flower;
+    private int price;
+
 
     /**
      * setup
      */
     @BeforeEach
     public void init() {
-        flower = new Flower();
+        price = RANDOM_GENERATOR.nextInt(MAX_PRICE);
+        flower = new TulipFlower(price);
     }
 
     /**
@@ -31,9 +28,7 @@ public class FlowerTest {
      */
     @Test
     public void testPrice() {
-        int price = RANDOM_GENERATOR.nextInt(MAX_PRICE);
-        flower.setPrice(price);
-        Assertions.assertEquals(price, flower.getPrice());
+        Assertions.assertEquals(price, flower.price());
     }
 
     /**
@@ -41,8 +36,6 @@ public class FlowerTest {
      */
     @Test
     public void testColor() {
-        FlowerColor color = FlowerColor.RED;
-        flower.getSpec().setColor(color);
         Assertions.assertEquals("red", flower.getSpec().getColor().toString());
     }
 }

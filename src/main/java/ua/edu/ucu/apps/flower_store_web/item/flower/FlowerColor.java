@@ -1,4 +1,4 @@
-package ua.edu.ucu.apps.flower_store_web.flower_store.flower;
+package ua.edu.ucu.apps.flower_store_web.item.flower;
 
 /**
  * all possible flower colors

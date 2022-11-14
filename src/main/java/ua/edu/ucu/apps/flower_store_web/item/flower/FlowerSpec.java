@@ -1,4 +1,4 @@
-package ua.edu.ucu.apps.flower_store_web.flower_store.flower;
+package ua.edu.ucu.apps.flower_store_web.item.flower;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +10,8 @@ import lombok.ToString;
 
 @Getter @Setter @ToString
 public class FlowerSpec {
+
+    private FlowerType flowerType;
     private FlowerColor color;
     private double sepalLength;
     /**
