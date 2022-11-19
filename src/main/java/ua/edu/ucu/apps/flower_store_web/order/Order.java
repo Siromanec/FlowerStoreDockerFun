@@ -44,6 +44,18 @@ public class Order {
         items.add(item);
     }
     public void removeItem(Item item) {
-        items.remove(item);
+
+        items.removeIf(orderItem -> orderItem.getDescription().equals(item.getDescription()));
+    }
+    @Override
+    public String toString() {
+        return "Order{"
+                + "items="
+                + items
+                + ", payment="
+                + payment
+                + ", delivery="
+                + delivery
+                + "}";
     }
 }

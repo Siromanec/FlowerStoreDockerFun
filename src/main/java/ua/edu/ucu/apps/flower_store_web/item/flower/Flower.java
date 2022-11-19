@@ -1,5 +1,6 @@
 package ua.edu.ucu.apps.flower_store_web.item.flower;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import ua.edu.ucu.apps.flower_store_web.item.Item;
@@ -26,8 +27,8 @@ public abstract class Flower extends Item {
                   FlowerColor color,
                   double sepalLength) {
         setPrice(price);
-        spec.setColor(color);
-        spec.setSepalLength(sepalLength);
+        setColor(color);
+        setSepalLength(sepalLength);
     }
 
     public double price() {
@@ -50,5 +51,26 @@ public abstract class Flower extends Item {
                 "}";
     }
 
+    public void setFlowerType(FlowerType type) {
+        spec.setFlowerType(type);
+    }
+    @JsonIgnore
+    public FlowerType getFlowerType() {
+        return  spec.getFlowerType();
+    }
+    public void setColor(FlowerColor color) {
+        spec.setColor(color);
+    }
+    @JsonIgnore
+    public FlowerColor getColor() {
+        return  spec.getColor();
+    }
+    public void setSepalLength(double sepalLength) {
+        spec.setSepalLength(sepalLength);
+    }
+    @JsonIgnore
+    public double getSepalLength() {
+        return spec.getSepalLength();
+    }
 
 }

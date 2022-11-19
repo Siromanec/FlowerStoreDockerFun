@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
+import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerColor;
 
 import java.util.Random;
 
@@ -36,6 +37,6 @@ public class TulipFlowerTest {
      */
     @Test
     public void testColor() {
-        Assertions.assertEquals("red", flower.getSpec().getColor().toString());
+        Assertions.assertEquals(FlowerColor.RED, flower.getColor());
     }
 }

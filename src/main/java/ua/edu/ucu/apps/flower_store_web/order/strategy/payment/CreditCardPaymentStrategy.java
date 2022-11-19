@@ -1,6 +1,10 @@
 package ua.edu.ucu.apps.flower_store_web.order.strategy.payment;
 
+import lombok.Getter;
+
 public class CreditCardPaymentStrategy implements Payment{
+    @Getter
+    private final static double STEALING_COEF = 1.03;
     /**
      * pay the price
      * @param price price you have to pay
@@ -17,6 +21,11 @@ public class CreditCardPaymentStrategy implements Payment{
      */
     @Override
     public double fees(double totalPrice) {
-        return totalPrice*1.03;
+        return totalPrice*STEALING_COEF;
+    }
+
+    @Override
+    public String toString() {
+        return "CreditCardPayment";
     }
 }

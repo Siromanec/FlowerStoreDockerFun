@@ -13,6 +13,6 @@ public class RoseFlower extends Flower {
      */
     public RoseFlower(double price) {
         super(price, FlowerColor.RED, 4);
-        getSpec().setFlowerType(FlowerType.ROSE);
+        setFlowerType(FlowerType.ROSE);
     }
 }

@@ -13,4 +13,8 @@ public class PostDeliveryStrategy implements Delivery {
     public double fees(List<Item> items) {
         return items.size() * 2;
     }
+    @Override
+    public String toString() {
+        return "PostDelivery";
+    }
 }

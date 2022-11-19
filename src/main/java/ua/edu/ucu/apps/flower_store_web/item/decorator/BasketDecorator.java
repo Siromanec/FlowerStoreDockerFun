@@ -16,7 +16,7 @@ public class BasketDecorator extends ItemDecorator {
     }
 
     public double getPrice() {
-        return DECORATOR_COST + item.price();
+        return 4 + item.price();
     }
 
     @Override

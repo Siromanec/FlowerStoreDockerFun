@@ -14,6 +14,6 @@ public class RomashkaFlower extends Flower {
      */
     public RomashkaFlower(double price) {
         super(price, FlowerColor.WHITE, 1.2);
-        getSpec().setFlowerType(FlowerType.ROMASHKA);
+        setFlowerType(FlowerType.ROMASHKA);
     }
 }

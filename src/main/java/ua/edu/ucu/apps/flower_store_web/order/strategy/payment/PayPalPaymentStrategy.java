@@ -19,4 +19,8 @@ public class PayPalPaymentStrategy implements Payment{
     public double fees(double totalPrice) {
         return totalPrice;
     }
+    @Override
+    public String toString() {
+        return "PayPalPayment";
+    }
 }

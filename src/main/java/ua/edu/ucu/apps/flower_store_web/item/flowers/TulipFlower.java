@@ -14,6 +14,6 @@ public class TulipFlower extends Flower {
      */
     public TulipFlower(double price) {
         super(price, FlowerColor.RED, 2);
-        getSpec().setFlowerType(FlowerType.TULIP);
+        setFlowerType(FlowerType.TULIP);
     }
 }

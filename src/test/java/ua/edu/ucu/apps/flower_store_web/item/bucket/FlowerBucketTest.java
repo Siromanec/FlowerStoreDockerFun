@@ -32,6 +32,10 @@ class FlowerBucketTest {
         flower = new RomashkaFlower(price/2);
         flowerBucket.addFlowers(flower);
         Assertions.assertEquals(flowerBucket.price(), price/2);
+        flower = new RomashkaFlower(price/2);
+        flowerBucket.addFlowers(flower);
+        Assertions.assertEquals(flowerBucket.price(), price);
+
     }
     @Test
     void addFlowerByPack() {
@@ -39,6 +43,10 @@ class FlowerBucketTest {
         FlowerPack flowerPack = new FlowerPack(flower, quantity);
         flowerBucket.addFlowers(flowerPack);
         Assertions.assertEquals(flowerBucket.price(), quantity*price/2);
+        flower = new RomashkaFlower(price/2);
+        flowerPack = new FlowerPack(flower, quantity);
+        flowerBucket.addFlowers(flowerPack);
+        Assertions.assertEquals(flowerBucket.price(), quantity*price);
     }
 
     @Test
@@ -62,5 +70,18 @@ class FlowerBucketTest {
             flowerBucket.addFlowers(flower);
         }
         Assertions.assertEquals(price * quantity + (price/2)*(quantity/2), flowerBucket.price());
+    }
+    @Test
+    public void toStringTest() {
+        flower = new RomashkaFlower(price/2);
+        flowerBucket.addFlowers(flower);
+        flower = new RoseFlower(price);
+        flowerBucket.addFlowers(flower);
+
+        Assertions.assertEquals("[FlowerPack{flower=Romashka{color='white', sepalLength=1.2, price="
+                +price/2
+                +"}, quantity=1}, FlowerPack{flower=Rose{color='red', sepalLength=4.0, price="
+                +price
+                +"}, quantity=1}]", flowerBucket.toString());
     }
 }

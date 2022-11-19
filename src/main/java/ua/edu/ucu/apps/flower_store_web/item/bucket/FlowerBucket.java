@@ -1,10 +1,10 @@
 
 package ua.edu.ucu.apps.flower_store_web.item.bucket;
 
+import ua.edu.ucu.apps.flower_store_web.item.Item;
 import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
 import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerSpec;
 import ua.edu.ucu.apps.flower_store_web.item.pack.FlowerPack;
-import ua.edu.ucu.apps.flower_store_web.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,24 +28,23 @@ public class FlowerBucket extends Item {
      */
     public void addFlowers(Flower fp) {
         FlowerPack flowerPack = searchFlower(fp.getSpec());
-        if (flowerPack!=null) {
+        if (flowerPack!=null && fp.price()==flowerPack.getFlower().getPrice()) {
             flowerPack.addFlower();
-        }
-        else {
+        } else {
             flowerPacks.add(new FlowerPack(fp, 1));
         }
     }
     public void addFlowers(FlowerPack fp) {
         FlowerPack flowerPack = searchFlower(fp.getFlower().getSpec());
-        if (flowerPack!=null) {
+        if (flowerPack!=null && fp.getFlower().getPrice()==flowerPack.getFlower().getPrice()) {
             flowerPack.addFlower(fp.getQuantity());
+            fp.setQuantity(0);
         }
         else {
             flowerPacks.add(fp);
         }
     }
     public FlowerPack searchFlower(FlowerSpec searchSpec) {
-
         List<FlowerPack> flowerPackList = flowerPacks.stream()
                 .filter(flowerPack ->
                         ((flowerPack.getFlower().getSpec().getColor()
@@ -58,14 +57,6 @@ public class FlowerBucket extends Item {
             return flowerPackList.get(0);
         }
         return null;
-//          !(new FlowerSearchEngine()
-//                .search(searchSpec,
-//                        flowerPacks
-//                                .stream()
-//                                .map(FlowerPack::getFlower)
-//                                .collect(Collectors.toList()))
-//                 .isEmpty());
-
     }
 
     @Override
@@ -82,6 +73,6 @@ public class FlowerBucket extends Item {
      */
     @Override
     public String toString() {
-        return flowerPacks.stream().toString();
+        return flowerPacks.toString();
     }
 }

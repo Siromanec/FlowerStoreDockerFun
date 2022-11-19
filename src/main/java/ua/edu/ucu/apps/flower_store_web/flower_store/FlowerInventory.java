@@ -1,6 +1,7 @@
 package ua.edu.ucu.apps.flower_store_web.flower_store;
 
 
+import lombok.Getter;
 import ua.edu.ucu.apps.flower_store_web.flower_store.search.FlowerSearchEngine;
 import ua.edu.ucu.apps.flower_store_web.item.flower.Flower;
 import ua.edu.ucu.apps.flower_store_web.item.flower.FlowerSpec;
@@ -12,15 +13,16 @@ import java.util.List;
 /**
  * flower inventory. here we store our flowers
  */
-public class FlowerInventory {
+public final class FlowerInventory {
+    @Getter
     private final List<Flower> inventory = new ArrayList<>();
-
+    private static FlowerInventory instance;
 
     /**
      * constructor for flower inventory
      * currently has only three flowers
      */
-    public FlowerInventory() {
+    private FlowerInventory() {
 
     }
 
@@ -38,6 +40,13 @@ public class FlowerInventory {
      * */
     public List<Flower> search(FlowerSpec searchSpec) {
         return new FlowerSearchEngine().search(searchSpec, inventory);
+    }
+
+    public static FlowerInventory getInstance() {
+        if (instance == null) {
+            instance = new FlowerInventory();
+        }
+        return instance;
     }
 }
 

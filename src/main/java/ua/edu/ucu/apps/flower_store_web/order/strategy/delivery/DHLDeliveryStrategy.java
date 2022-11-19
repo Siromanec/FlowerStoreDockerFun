@@ -14,4 +14,8 @@ public class DHLDeliveryStrategy implements Delivery {
     public double fees(List<Item> items) {
         return items.size() + 20;
     }
+    @Override
+    public String toString() {
+        return "DHLDelivery";
+    }
 }

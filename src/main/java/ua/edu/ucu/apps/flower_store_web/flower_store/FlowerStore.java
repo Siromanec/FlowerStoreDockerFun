@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class FlowerStore {
     private static final
-    FlowerInventory FLOWER_INVENTORY = new FlowerInventory();
+    FlowerInventory FLOWER_INVENTORY = FlowerInventory.getInstance();
 
     /**
      * constructor
